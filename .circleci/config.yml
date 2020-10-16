@@ -1,0 +1,32 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:sdk
+    steps:
+      - checkout
+      - run:
+          name: APIGateway Build
+          command: dotnet build
+          working_directory: APIGateway
+      - run:
+            name: AuthAPI Build
+            command: dotnet build
+            working_directory: AuthAPI
+      - run:
+            name: CustomerAPI Build
+            command: dotnet build
+            working_directory: CustomerAPI
+      - run:
+            name: CustomerBankAccountAPI Build
+            command: dotnet build
+            working_directory: CustomerBankAccountAPI
+      - run:
+            name: CustomerCreditCardAPI Build
+            command: dotnet build
+            working_directory: CustomerCreditCardAPI
+      - run:
+            name: IdentityVerificationAPI Build
+            command: dotnet build
+            working_directory: IdentityVerificationAPI
+        
